@@ -1,0 +1,319 @@
+<!doctype html>
+<html>
+<head>
+
+
+  <meta charset="utf-8">
+  <link rel="shortcut icon" href="https://www.univ-amu.fr/misc/favicon.ico" type="image/vnd.microsoft.icon" />
+  <meta name="MobileOptimized" content="width" />
+  <title>SXP WebRTC</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+         
+               
+              <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+</head>
+<body>
+<style type="text/css">
+    .navbar-inverse {
+    
+    background-color:#2c3e50 !important;
+    font-size: large;
+    font-weight: bold;
+    
+}
+
+img {
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 60px;
+}
+
+p {
+  font-family: Verdana;
+  font-size: 0.9;
+}
+
+h1, h2, p , table {
+   margin : 40px;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 50px;
+  color: #000047;
+}
+
+table
+{
+    border-collapse: collapse;
+    text-align: center;
+    margin-bottom: 10px;
+
+}
+
+td, th /* Mettre une bordure sur les td et th */
+{
+    border: 2px solid black;
+    width: 100px;
+
+}
+
+footer {
+      background-color: #1b212b;
+      padding: 65px;
+      color: white;
+      font-family: Verdana;
+      font-size: 1.0em;
+    }
+
+    /* Hide the carousel text when the screen is less than 600 pixels wide */
+    @media (max-width: 600px) {
+      .carousel-cption {
+        display: none; 
+      }
+    }
+</style>
+            <nav class="navbar navbar-inverse" style="position: fixed; top:0; width: 100%;">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href=""></a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li><a href="index.html" target="_blank">Home</a></li>
+        <li><a href="description.html" target="_blank">Description</a></li>
+        <li><a href="" target="_blank">Download</a></li>
+        <li><a href="test.html">Test de robustesse</a></li>
+         <li><a href="utilisation.html" target="_blank">Mode d'emploi</a></li>
+        <li><a href="#footer">A propos</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<h1 style="margin-top: 70px;">TEST DE ROBUSTESSE</h1>
+
+<div class="container-fluid" id="utilisation">
+  <h2>UTILISATION DU PROJET :</h2>
+  <p>Utilisation du projet:
+Avant de faire des tests nous allons voir comment marche le projet.
+Pour lancer le projet il suffit de lancer la partie serveur qui se trouve dans le dossier kad-webrtc-master/examples/shared/. Nous l’avons fait tourner sur NodeJS. 
+Puis il suffit d’ouvrir dans un browser l’index du projet (kad-webrtc-master/examples/webrtc-browser-interactive/).
+
+Nous tombons alors sur l’interface suivante :
+<div style="text-align: center;">
+<img src="cpt1.png" align="middle">
+</div>
+
+Comment ça marche ?
+- “This Node” permet de créer un nœud dont l’id sera le nom donner.
+- “Connect to node” permet de faire un lien entre le nœud que l’on à créer préalablement et un autre nœud.
+- “Get” permet de définir si un élément est récupérable.
+- “Put” création d’un couple (clé, valeur) dans le nœud créé. La clé va servir à aller chercher la valeur de la donnée stockée dans le nœud.
+Dans un premier temps nous allons utiliser le programme pour fabriquer trois nœuds connectés entre eux de cette manière :
+
+<div style="text-align: center;">
+<img src="cpt2.png" align="middle">
+</div>
+
+Première étape :
+Créer les trois nœuds en ouvrant trois onglet de navigateur. Il est possible d'inspecter la page pour voir si la création de nœud marche. 
+Deuxième étape :
+Faire la connexion des nœuds dans le premier et second navigateur. Si la connexion réussi une petite fenêtre apparaîtra avec comme message :
+
+<div style="text-align: center;">
+<img src="cpt3.png" align="middle">
+</div>
+
+Le but de ce premier test est de voir si un objet stocké dans Noeud 1 est visible par Noeud 3 en passant par Noeud 2.
+D’abord pour vérifier que la connexion entre les Noeud soit bien établie on va stockée dans Noeud 2 un couple (1, Pomme) grâce à la commande Put:
+
+<div style="text-align: center;">
+<img src="cpt4.png" align="middle">
+</div>
+
+La commande put faite dans le browser Node 2, un message de réussite s’affiche :
+<div style="text-align: center;">
+<img src="cpt5.png" align="middle">
+</div>
+
+Puis on essaye d’y accéder en utilisant la commande GET:
+<div style="text-align: center;">
+<img src="cpt6.png" align="middle">
+</div>
+
+Dans les browsers contenant les Nœuds 1 et 3. On devrait alors tomber sur une fenêtre :
+<div style="text-align: center;">
+<img src="cpt7.png" align="middle">
+</div>
+
+
+Il existe donc bien une connexion (Noeud 1, Noeud 2) et (Noeud 2, Noeud 3).
+
+De la même manière que précédemment nous allons stocker des “abricots” dans Node 1 avec la clé “2” et des mandarines dans Node 3 avec la clé “c”. On stock avec Put et récupère les éléments avec Get.
+
+Il est bien sur possible de créer plus de connexion mais il faut faire attention à ne pas surcharger le serveur.
+
+</p>
+</div>
+
+<div class="container-fluid">
+  <p>
+<h2>Test pour trouver les failles du projets:</h2>
+<strong>Créer plusieur noeuds dans un seul browser que ce passe-t-il?</strong>
+<div style="text-align: center;">
+<img src="cpt8.png" align="middle">
+</div>
+Interprétation. Qu’est-ce que cela signifie ? Bonne question mes amis. <br>
+
+<strong>Stockage d’élément sur une même clé : </strong>
+On va mettre en évidence le fait que l’on peut écraser des éléments stockés à tout moment avec n’importe quel utilisateur.
+Pour cela on repart sur l’exemple simple suivant :
+
+<div style="text-align: center;">
+<img src="cpt9.png" align="middle">
+</div>
+
+On se demande ce qu’il se passe lorsque je stocke un élément dans le Noeud 1 et que je réécris un autre élément avec la même clé.
+Dans Node 1 on stock (1,”patates”), puis on stock un deuxième objet (1,”tomates”). Du point de vue de tous les utilisateurs seul le dernier élément entré est visible. Ce qui veut dire qu’on ne peut plus accéder à des “patates” sur Noeud 1. <br>
+Mais le problème ne s’arrête pas là si l’on stock (1,”salade”) dans le Node 3, dans ce cas “tomates” sera remplacé par “salade” et sera accessible par Node 3. <br>
+Imaginons que les éléments stockés sont des fichiers à télécharger, dans ce cas cela voudrait dire que pendant que quelqu’un télécharge un fichier on peut l’arrêter en remplaçant ce fichier par un autre avec la même clé. <br>
+
+
+
+<strong>Connecter un Noeud à lui-même : </strong>
+Pour tester si le programme est intelligent, nous allons connecter un Noeud à lui-même. Ce qui est inutile puisque nous avons directement accès à ce qui est sur notre ordinateur. 
+
+<div style="text-align: center;">
+<img src="cpt10.png" align="middle">
+</div>
+
+Il est effectivement possible de créer une connexion sur un même utilisateur. Le problème c’est que le programme fait le chemin de connexion qui existe entre tous à partir de notre nœud et définis si ce chemin existe déjà.  <br>
+Maintenant si on imagine qu’il existe des milliers d’utilisateur cela veut dire que si l’on essaye de connecter un nouveau PC il faudra reconstruire la quasi-totalité de la structure et non pas seulement lui dire “Ton voisin c’est lui”. <br>
+De plus refaire la connexion entre deux nœuds est inutile. Et bien avec ce programme c’est aussi possible, ce qui veut dire que l’on va revérifier tous les chemins possibles entre deux Nœuds qui sont déjà connectés ensemble. <br>
+ 
+
+ <strong>Stockage d’un même élément mais avec une clé différente : </strong> <br>
+On reprend pour la nième fois le premier exemple vu. On va stocker dans Noeud 1 un élément (1,”kebab”) et dans Noeud 3 (4,”kebab”). Cela marche bien et ne pose pas vraiment de problème, il y aura juste deux moyens d’arriver à une même solution. Ce qui n’est pas vraiment gênant.
+
+<strong>Essayé de récupérer un élément inexistant : </strong>
+Pour cela on va rentrer dans la fonction Get une valeur de clé inexistante.
+
+<div style="text-align: center;">
+<img src="cpt11.png" align="middle">
+</div>
+
+Ce cas de figure est pris en compte par le système. Si une clé n’est utilisée par aucun des utilisateurs sur lesquels on est connecté, une erreur est retournée. <br>
+
+<strong>Insérer des valeurs sans clé : </strong>
+Il est possible de stocker des éléments sans clé. Dans ce cas la clé de l’élément est comptée comme “NULL” et pour le récupérer il ne faudra rien mettre dans partie “Get” de notre page html. <br>
+
+<strong> Créer deux nœuds avec un même nom : </strong>
+Il est possible de créer deux Noeuds ayant le même nom, mais ils ne pourront jamais être connectées ensemble. Lorsque l'on crée un Noeud “Test” en double et que l’on essaye de le connecter à un Noeud déjà existant il se passe :
+
+
+<div style="text-align: center;">
+<img src="cpt12.png" align="middle">
+</div>
+
+Impossible de faire la connexion avec le nœud “Test”. Il est possible de rajouter des choses dans “Test” mais ils ne seront pas visibles sur le réseau créé par les nœuds. <br>
+Le problème est si l’on crée un Noeud qui existe déjà on risque de couper toutes les connexions à ce nœud. 
+Pour cela on va faire un deuxième nœud “Test2” qui sera reliée aux Nœuds 1,2. Puis on va faire un deuxième nœud “Test2” puis on va tester si la connexion entre le premier “Test2” et les trois nœuds est altérée.
+Donc dans un premier temps no connexion ressemble à ça :
+
+<div style="text-align: center;">
+<img src="cpt13.png" align="middle">
+</div>
+
+On met l’élément (test, courge) dans le nœud “Test2”. “courge” est donc accessible à partir de tous les nœuds. Maintenant on rajoute un deuxième nœud avec comme nom “Test2”:
+
+<div style="text-align: center;">
+<img src="cpt14.png" align="middle">
+</div>
+
+On vient de parasiter la connexion avec “Test2”. Il est toujours possible de connecter d’autre nœud a “Noeud 1” ou “Noeud 2” mais pas à “Test2”. De plus tous les éléments rajoutés dans le “Test2” connecter ne sera pas visible. Seuls les éléments déjà stockés au préalable seront accessible. Il sera préférable de limiter les noms donnés aux nœuds.
+
+</div>
+
+<div>
+  <h2>TEST DE ROBUSTESSE :</h2>
+<p>
+  <strong>Apply marche en ligne ?</strong> <br>
+NON <br>
+
+<strong>Marche avec n’importe quel browser ?</strong> <br>
+Nous allons vérifier si le programme peut tourner dans différents types de browser. La connexion WebRTC ce faisant directement par les navigateurs, il est important de savoir sur quel browser il est possible de créer une connexion.
+
+<table>
+  <tr>
+    <th>Nom Browser </th>
+    <th>Connexion</th>
+  </tr>
+
+   <tr>
+    <td>Firefox</td>
+    <td>Oui</td>
+  </tr>
+
+   <tr>
+    <td>Chrome</td>
+    <td>Oui</td>
+  </tr>
+
+   <tr>
+    <td>Internet Explorer</td>
+    <td>Nom</td>
+  </tr>
+
+</table>
+</p>
+<p>
+Nous ne pouvons pas utiliser le projet sur le navigateur Internet Explorer. Il est possible de continuer les tests sur d’autre browser. Attention la version de certain navigateur peut empêcher une connexion WebRTC. <br>
+
+<strong>Communication entre browser différent :</strong>
+La communication entre les browsers est faisable. Il y a la possibilité de connecter des Nœuds créé sur Chrome à d’autre fait sur Firefox. Le réseau ainsi fait marche normalement aucun changement n’est notable.
+
+
+
+</p>
+
+</div>
+
+
+
+<footer class="container-fluid " id="footer">
+  <p>Ce projet a été revu par des étudiants en Master 1 informatique à l'université d'Aix-Marseille dans le cadre du module de Génie Logiciel:</p> 
+  <p> 
+  <div class="col-lg-3">
+    <ul>
+    <li>BEN JEMIA Moahemed Yassine</li>
+    <li>HAMIDI Zakaria</li>
+  </ul>
+  </div>
+  <div class="col-lg-9">
+    <ul>
+    <li>ESTAILLARD Julien</li>
+    <li>FARHAT Houssem</li>
+  </ul>
+  </div>
+  2017-2018
+</p>
+  <p></p>
+</footer>
+
+    <script src="index.browser.js"></script>
+</body>
+</html>

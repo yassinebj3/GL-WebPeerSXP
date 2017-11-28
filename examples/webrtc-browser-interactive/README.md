@@ -1,37 +1,37 @@
 webrtc-browser-interactive
 ==========================
 
-Nous avons deux exemples : 
-- exemple1.html
-- exemple2.html 
+This example demonstrates using the WebRTC transport in the browser.
+It is interactive, and requires multiple browser tabs.
 
-Ces deux exemples illustrent le fonctionnement de la DHT kademlia sur WebRTC permettant la création d'un réseau P2P
+A signal server is needed to perform a WebRTC handshake
+and initiate the peer-to-peer connection.
+This example demonstrates end-to-end connectivity with a signal server.
 
-## Fonctionner l'exemple
+## Running the example
 
-Démarrez le serveur : 
+To start the signal server, do
 
     node examples/shared/server.js
 
-Consultez la première page pour le premier exemple : 
+Then, in your browser navigate to
 
-* http://localhost:8084/examples/webrtc-browser-interactive/exemple1.html
+    http://localhost:8080/examples/webrtc-browser-interactive/index.html
 
-Consultez la deuxième page pour le deuxième exemple : 
-* http://localhost:8084/examples/webrtc-browser-interactive/exemple2.html
+## Explanation
 
-## Explication 
+This will serve a webpage with a rudimentary interface.
+The interface features 4 forms;
 
-Dans l'interface principale on aura 4 fonctionnalités principales : 
+* Node launcher; Input node name and start the node.
+* Connection; Input bootstrap node and connect to it.
+* Get / Lookup; Lookup a key and return it's value.
+* Put; Save a key to the DHT.
 
-* L'execution d'un noeud .
-* La connexion avec un noeud afin de rejoindre le réseau.
-* La recherche par clé .
-* L'enregistrement des informations.
+To utilize the interface;
 
-Pour commencer : 
+* Launch atleast two nodes (with distinct IDs); by opening two browser tabs, 
+    and launching.
+* Connect the nodes; by inputting the ID of another node, and connecting.
 
-* Lancer deux noeud ou plus en ouvrant deux navigateurs différents 
-* Connecter les Noeuds entre eux
-
-A partir de là vous pouvez tester le fonctionnement et voir la console 
+At this point the network is setup, and you can do lookups / stores.
