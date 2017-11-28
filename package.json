@@ -1,5 +1,5 @@
 {
-  "name": "kad-webrtc",
+  "name": "WebpeerSXP",
   "version": "1.5.0",
   "description": "webrtc transport for kad",
   "main": "index.js",
@@ -10,26 +10,25 @@
   },
   "scripts": {
     "test": "mocha test/**",
-    "build-examples": "npm run build-browser && npm run build-browser-e2e && npm run build-browser-interactive",
-    "build-browser": "browserify examples/webrtc-browser/index.js > examples/webrtc-browser/index.browser.js",
-    "build-browser-e2e": "browserify examples/webrtc-browser-e2e/index.js > examples/webrtc-browser-e2e/index.browser.js",
-    "build-browser-interactive": "browserify examples/webrtc-browser-interactive/index.js > examples/webrtc-browser-interactive/index.browser.js"
+    "build-examples": "npm run build-exemple1 && npm run build-exemple2" ,
+    "build-exemple1": "browserify examples/webrtc-browser-interactive/index.js > examples/webrtc-browser-interactive/index.browser.js",
+    "build-exemple2": "browserify examples/webrtc-browser-interactive/index.js > examples/webrtc-browser-interactive/index.browser2.js",
   },
+
   "keywords": [
     "kad",
     "dht",
     "webrtc"
   ],
-  "author": "omphalos",
-  "license": "GPL-3.0",
+  "author": "omphalos (kad-webrtc) && M1 Informatique Luminy (WebpeerSXP)",
   "repository": {
     "type": "git",
-    "url": "https://github.com/omphalos/kad-webrtc"
+    "url": "https://github.com/yassinebj3/GL-WebPeerSXP"
   },
   "dependencies": {
-    "hat": "0.0.3",
-    "kad": "^1.5.5",
-    "simple-peer": "^6.2.0"
+    "hat": "^0.0.3",
+    "kad": "^1.6.5",
+    "simple-peer": "^6.4.4"
   },
   "devDependencies": {
     "chai": "^3.4.1",
