@@ -19,14 +19,17 @@
 # [Wiki WebPeerSXP](https://github.com/yassinebj3/GL-WebPeerSXP/wiki/Projet-WebPeerSXP)
 
 # Introduction : 
-Après une études des multiples projets WebRTC nous avons choisi l’application javascript “WebRTC kademlia”, pour la simple et bonne raison que c’est le projet le plus avancé, le plus simple à utiliser et qui comporte le moins de bugs par rapport aux autres. Ce logiciel va permettre de simuler des connexion pair à pair WebRTC en local. Ce projet a été implémenté par [omphalos](https://github.com/omphalos)  il est possible de le contacter par la page du lien du projet.
+Après une études des multiples projets WebRTC nous avons choisi l’application javascript “WebRTC kademlia”, pour la simple et bonne raison que c’est le projet le plus avancé, le plus simple à utiliser et qui comporte le moins de bugs par rapport aux autres. Ce logiciel va permettre de simuler des connexion pair à pair WebRTC en local. Le projet kad-webrtc a été implémenté par [omphalos](https://github.com/omphalos)  il est possible de le contacter par la page du lien du projet.Ainsi kad-webrtc est le noyau de notre projet WebPeerSXP.
 
-### [kad-webrtc](https://github.com/kadtools/kad-webrtc) 
+#### [kad-webrtc](https://github.com/kadtools/kad-webrtc) 
+
+
 
 # Projet WebPeerSXP : 
 WebPeerSXP est un projet qui implémente une DHT en utilisant l'algorithme kademlia et qui se base sur WebRTC qui assure une connexion peer2peer entre deux navigateurs.
 le projet offre la possibilité comprendre le mécanisme des DHT et manipuler des objets dans un réseaux P2P. 
 Ce projet présente essentiellement des explications sur le projet [kad-webrtc](https://github.com/kadtools/kad-webrtc) et implémente quelques exemples afin d'améliorer un peu le fonctionnement de [kad-webrtc](https://github.com/kadtools/kad-webrtc) .
+WebPeerSXP a pour objectif d'intégrer WebRTC dans le projet [SXP](https://github.com/pja35/SXP). 
 
 ### L'installation du projet « WebPeerSXP » : 
 L’installation du projet se fait via la commande :
