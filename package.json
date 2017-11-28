@@ -10,9 +10,8 @@
   },
   "scripts": {
     "test": "mocha test/**",
-    "build-examples": "npm run build-exemple1 && npm run build-exemple2" ,
-    "build-exemple1": "browserify examples/webrtc-browser-interactive/index.js > examples/webrtc-browser-interactive/index.browser.js",
-    "build-exemple2": "browserify examples/webrtc-browser-interactive/index.js > examples/webrtc-browser-interactive/index.browser2.js"
+    "build-examples": "npm run build-exemple1" ,
+    "build-exemple1": "browserify examples/webrtc-browser-interactive/index.js > examples/webrtc-browser-interactive/index.browser.js"
   },
 
   "keywords": [
