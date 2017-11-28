@@ -47,7 +47,7 @@ Démarrez le serveur :
 node examples/shared/server.js
 ```
 
-Le serveur sera lancé sur le port 8080 (Si vous avez déjà un autre serveur exécuté sur le port 8080 , vous devez le fermer ou bien changer le port du server.js) . 
+Le serveur sera lancé sur le port 8084 (Si vous avez déjà un autre serveur exécuté sur le port 8084 , vous devez le fermer ou bien changer le port du server.js) . 
 Tapez l’URL de l’exemple, ouvrez plusieurs onglets et essayez de connecter les clients entre eux.
 Vous pouvez regarder la console pour savoir le fonctionnement du projet.
 
