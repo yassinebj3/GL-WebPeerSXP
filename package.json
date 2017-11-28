@@ -1,0 +1,41 @@
+{
+  "name": "kad-webrtc",
+  "version": "1.5.0",
+  "description": "webrtc transport for kad",
+  "main": "index.js",
+  "directories": {
+    "example": "examples",
+    "test": "test",
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "mocha test/**",
+    "build-examples": "npm run build-browser && npm run build-browser-e2e && npm run build-browser-interactive",
+    "build-browser": "browserify examples/webrtc-browser/index.js > examples/webrtc-browser/index.browser.js",
+    "build-browser-e2e": "browserify examples/webrtc-browser-e2e/index.js > examples/webrtc-browser-e2e/index.browser.js",
+    "build-browser-interactive": "browserify examples/webrtc-browser-interactive/index.js > examples/webrtc-browser-interactive/index.browser.js"
+  },
+  "keywords": [
+    "kad",
+    "dht",
+    "webrtc"
+  ],
+  "author": "omphalos",
+  "license": "GPL-3.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/omphalos/kad-webrtc"
+  },
+  "dependencies": {
+    "hat": "0.0.3",
+    "kad": "^1.5.5",
+    "simple-peer": "^6.2.0"
+  },
+  "devDependencies": {
+    "chai": "^3.4.1",
+    "mocha": "^2.3.4",
+    "sinon": "^1.17.2",
+    "browserify": "^11.1.0",
+    "ws": "^0.8.1"
+  }
+}
