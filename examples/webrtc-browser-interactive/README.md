@@ -13,9 +13,12 @@ Démarrez le serveur :
 
     node examples/shared/server.js
 
-Consultez la première page poure le premier exemple : 
-    http://localhost:8084/examples/webrtc-browser-interactive/exemple1.html
-Consultez la première page poure le premier exemple : 
+Consultez la première page pour le premier exemple : 
+
+* http://localhost:8084/examples/webrtc-browser-interactive/exemple1.html
+
+Consultez la deuxième page pour le deuxième exemple : 
+* http://localhost:8084/examples/webrtc-browser-interactive/exemple2.html
 
 ## Explication 
 
