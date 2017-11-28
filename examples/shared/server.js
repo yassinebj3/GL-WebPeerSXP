@@ -4,17 +4,17 @@
 
 var http = require('http');
 var path = require('path');
-var fs = require('fs');
+var fs = require('fs'); // lire les fichiers
 var EventEmitter = require('events').EventEmitter;
 var signaller = new EventEmitter();
 var WebSocketServer = require('ws').Server;
-var port = 8080;
+var port = 8084;
 var server = require('http').createServer().listen(port);
 var ws = new WebSocketServer({ server: server });
 
 ws.on('connection', function(connection) {
 
-  console.log('WebSocketServer connection');
+  console.log('Connection du WebSocketServer'); // fonctionnalité de débogage, cela s'affichera dans la console de débogage
 
   connection.on('message', function(data) {
 
@@ -38,8 +38,6 @@ ws.on('connection', function(connection) {
   });
 });
 
-var compteur=0;
-
 server.on('request', function(req, res) {
   var filePath = __dirname + '/../..' + req.url;
   fs.readFile(filePath, function(err, file) {
@@ -50,7 +48,6 @@ server.on('request', function(req, res) {
       return res.end(message);
     }
     var extension = path.extname(filePath).substring(1);
-   console.log("compteur"+compteur++);
     console.log('serving', filePath);
     res.statusCode = 200;
     res.setHeader('Content-Type', 'text/' + extension);
