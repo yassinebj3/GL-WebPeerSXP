@@ -174,13 +174,10 @@ le projet offre la possibilité comprendre le mécanisme des DHT et manipuler de
 le pair à pair est modèle de réseau informatique qui peut avoir une architecture centralisée ou bien 
 décentralisée . Dans notre projet , nous avons utilisé une architecture où chaque noeud du réseaux se comporte comme un client et serveur à la fois. Dans notre cas il y’a absence total des structures partagés et centralisés (base de données , serveur , noeud central) . 
 
-image 
+[[https://github.com/yassinebj3/GL-WebPeerSXP/blob/master/photos/Architecture.PNG|alt=octocat]]
 
 Le projet kad-utilise le framework node.js qui utilise javascript dans un serveur HTTP et qui permet de manipuler plusieurs modules. 
 
-
-And of course Dillinger itself is open source with a [public repository][dill]
- on GitHub.
 
 # Manuel d’utilisation : 
 Avant de faire des tests, nous allons voir comment fonctionne le projet.
@@ -188,6 +185,9 @@ Pour lancer le projet, il suffit de lancer la partie serveur qui se trouve dans 
 Puis il suffit d’ouvrir dans un browser l’index du projet (kad-webrtc-master/examples/webrtc-browser-interactive/index.html).
 
 Nous tombons alors sur l’interface suivante:
+
+[[https://github.com/yassinebj3/GL-WebPeerSXP/blob/master/photos/kad1.PNG|alt=octocat]]
+
 Comment cela fonctionne t-il?
 “This Node” permet de créer un noeud dont l’id sera le nom donné.
 “Connect to node” permet de faire un lien entre le noeud que l’on a créé préalablement et un autre noeud.
@@ -195,21 +195,31 @@ Comment cela fonctionne t-il?
 “Put” création d’un couple (clé,valeur) dans le noeud créé. La clé va servir à aller chercher la valeur de la donnée stockée dans le noeud.
 Dans un premier temps, nous allons utiliser le programme pour fabriquer trois noeuds connectés entre eux de cette manière:
 
+[[https://github.com/yassinebj3/GL-WebPeerSXP/blob/master/photos/kad2.PNG|alt=octocat]]
+
 1. Première étape:
 Créer les trois noeuds en ouvrant trois onglets de navigateur. Il est possible d'inspecter la page pour voir si la création du noeud a bien fonctionné . 
 2. Deuxième étape:
 Faire la connexion des noeuds dans le premier et second navigateur. Si la connexion réussit, une petite fenêtre apparaîtra avec comme message:
 
+[[https://github.com/yassinebj3/GL-WebPeerSXP/blob/master/photos/kad3.PNG|alt=octocat]]
 
 Le but de ce premier test est de voir si un objet stocké dans Noeud 1 est visible par Noeud 3 en passant par Noeud 2.
 D’abord, pour vérifier que la connexion entre les Noeuds a bien été établie, on va stocker dans le Noeud 2 un couple (1,Pomme) grâce à la commande Put:
 
+[[https://github.com/yassinebj3/GL-WebPeerSXP/blob/master/photos/kad4.PNG|alt=octocat]]
+
 La commande ‘put’ faite dans le browser Node 2, un message de réussite s’affiche:
 
+[[https://github.com/yassinebj3/GL-WebPeerSXP/blob/master/photos/kad5.PNG|alt=octocat]]
 
 Puis on essaye d’y accéder en utilisant la commande GET:
 
+[[https://github.com/yassinebj3/GL-WebPeerSXP/blob/master/photos/kad6.PNG|alt=octocat]]
+
 Dans les browsers contenant les Noeuds 1 et 3. On devrait alors tomber sur une fenêtre:
+
+[[https://github.com/yassinebj3/GL-WebPeerSXP/blob/master/photos/kad7.PNG|alt=octocat]]
 
 Il existe donc bien une connexion (Noeud 1, Noeud 2) et (Noeud 2, Noeud 3).
 
@@ -315,12 +325,13 @@ server.on('request', function(req, res) {..});
 ```
 # Tests et robustesse : 
 Créer plusieur noeud dans un seul browser que ce passe-t-il?
-
 Interprétation. Qu’est ce que ça signifie? Bonne question mes amis.
 
 Stockage d’élément sur une même clé:
 On va mettre en évidence le fait que l’on peut écraser des éléments stockés à tout moment avec n’importe quel utilisateur.
 Pour cela on repart sur l’exemple simple suivant:
+
+[[https://github.com/yassinebj3/GL-WebPeerSXP/blob/master/photos/kad8.PNG|alt=octocat]]
 
 On se demande ce qu’il se passe lorsque je stocke un élément dans le Noeud 1 et que je réécrit un autre élément avec la même clé.
 Dans Node 1 on stock (1,”patates”), puis on stock un deuxième objet (1,”tomates”). Du point de vue de tous les utilisateurs, seul le dernier élément entré est visible. Ce qui veut dire qu’on ne peut plus accéder à des “patates” sur Noeud 1.
@@ -329,6 +340,8 @@ Imaginons que les éléments stockées sont des fichier à télécharger, dans c
 
 Connecter un Noeud à lui même :
 Pour tester si le programme est intelligent, nous allons connecter un Noeud à lui même. Ce qui est inutile puisque nous avons directement accès à ce qui est sur notre ordinateur.
+
+[[https://github.com/yassinebj3/GL-WebPeerSXP/blob/master/photos/kad9.PNG|alt=octocat]]
 
 Il est effectivement possible de créer une connexion sur un même utilisateur. Le problème c’est que le programme fait le chemin de connexion qui existe entre tous à partir de notre noeud et définis si ce chemin existe déjà. 
 Maintenant si on imagine qu’il existe des millier d’utilisateurs, cela voudra dire que si l’on essaye de connecter un nouveau PC il faudra reconstruire la quasi totalité de la structure et non pas seulement lui dire “Ton voisin c’est lui”.
@@ -341,6 +354,8 @@ On reprend pour la nième fois le premier exemple vu. On va stocker dans Noeud 1
 Essayer de récupérer un élément inexistant :
 Pour cela on va rentrer dans la fonction Get une valeur de clé inexistante.
 
+[[https://github.com/yassinebj3/GL-WebPeerSXP/blob/master/photos/kad10.PNG|alt=octocat]]
+
 Ce cas de figure est pris en compte par le système. Si une clé n’est utilisée par aucun des utilisateurs sur lesquels on est connecté, une erreur est retournée.
 
 Insérer des valeurs sans clé :
@@ -350,12 +365,18 @@ Il est possible de stocker des éléments sans clé. Dans ce cas la clé de l’
 Créer deux noeuds du même nom:
 Il est possible de créer deux Noeuds ayant le même nom mais il ne pourront jamais être connectées ensemble. Lorsque l'on crée un Noeud “Test” en double et que l’on essaye de le connecter à un Noeud déjà existant il se passe:
 
+[[https://github.com/yassinebj3/GL-WebPeerSXP/blob/master/photos/kad11.PNG|alt=octocat]]
+
 Impossible de faire la connexion avec le noeud “Test”. Il est possible de rajouter des chose dans “Test” mais il ne seront pas visible sur le réseau créé par les noeuds.
 Le problème est si l’on crée un Noeud qui existe déjà on risque de couper toute les connexion à ce noeud. 
 Pour cela on va faire un deuxième noeud “Test2” qui sera reliée aux Noeuds 1,2. Puis on va faire un deuxième noeud “Test2” puis on va tester si la connexion entre le premier “Test2” et les trois noeud est altérée.
 Donc dans un premier temps no connexion ressemble à ça:
 
+[[https://github.com/yassinebj3/GL-WebPeerSXP/blob/master/photos/kad12.PNG|alt=octocat]]
+
 On met l’élément (test,courge) dans le noeud “Test2”. “courge” est donc accessible à partir de tous les noeuds. Maintenant on rajoute un deuxième noeud avec comme nom “Test2”:
+
+[[https://github.com/yassinebj3/GL-WebPeerSXP/blob/master/photos/kad13.PNG|alt=octocat]]
 
 On vient de parasité la connexion avec “Test2”. Il est toujours possible de connecter d’autre noeud a “Noeud 1” ou “Noeud 2” mais pas à “Test2”. De plus tous les éléments rajouté dans le “Test2” connecter ne sera pas visible. Seul les éléments déjà stockés au préalable seront accessible. Il sera préférable de limiter les nom données aux noeud.
 
@@ -389,6 +410,8 @@ Réglage du problème de Nom des clients
 Recherche multicritère
 Donc dans un premier il serait préférable de régler le fait que deux clients peuvent avoir le même nom.
 Puis faire une recherche sur plusieur critère c’est à dire qu'une personne qui vend des ingrédients à un nom un adresse etc… Donc il serait possible qu’un client trouve ce qu’il souhaite à partir d’une adresse. Prenons un exemple:
+
+[[https://github.com/yassinebj3/GL-WebPeerSXP/blob/master/photos/kad14.PNG|alt=octocat]]
 
 Ici nous avons stocké un objet “Studio” à “Marseille”, la recherche par clé se fera par plusieur critère, le lieu et le type de logement. Il y a plusieurs manière d’implémenter le principe de multicritère.
 
@@ -486,8 +509,11 @@ Afin d’éviter l’écrasement des valeurs qui auront le même clés , nous av
 
 # Manuel d’utilisation de l’exemple 2 : 
 1- Lancer un nœud et  connecter deux nœuds entre eux
+[[https://github.com/yassinebj3/GL-WebPeerSXP/blob/master/photos/kad15.PNG|alt=octocat]]
 2- Publier une annonce en choisissant une catégorie et une sous-catégorie
-4-Chercher les annonces selon la catégorie et sous-catégorie choisis 
+[[https://github.com/yassinebj3/GL-WebPeerSXP/blob/master/photos/kad16.PNG|alt=octocat]]
+3-Chercher les annonces selon la catégorie et sous-catégorie choisis
+[[https://github.com/yassinebj3/GL-WebPeerSXP/blob/master/photos/kad17.PNG|alt=octocat]]
 
 NB : Nous avons utilisé des petits intervalles dans le but de tester le fonctionnement , vous pouvez modifier les intervalles dans les fonctions random() : 
 
