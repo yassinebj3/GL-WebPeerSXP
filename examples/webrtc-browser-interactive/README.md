@@ -1,37 +1,34 @@
 webrtc-browser-interactive
 ==========================
 
-This example demonstrates using the WebRTC transport in the browser.
-It is interactive, and requires multiple browser tabs.
+Nous avons deux exemples : 
+- exemple1.html
+- exemple2.html 
 
-A signal server is needed to perform a WebRTC handshake
-and initiate the peer-to-peer connection.
-This example demonstrates end-to-end connectivity with a signal server.
+Ces deux exemples illustrent le fonctionnement de la DHT kademlia sur WebRTC permettant la création d'un réseau P2P
 
-## Running the example
+## Fonctionner l'exemple
 
-To start the signal server, do
+Démarrez le serveur : 
 
     node examples/shared/server.js
 
-Then, in your browser navigate to
+Consultez la première page poure le premier exemple : 
+    http://localhost:8084/examples/webrtc-browser-interactive/exemple1.html
+Consultez la première page poure le premier exemple : 
 
-    http://localhost:8080/examples/webrtc-browser-interactive/index.html
+## Explication 
 
-## Explanation
+Dans l'interface principale on aura 4 fonctionnalités principales : 
 
-This will serve a webpage with a rudimentary interface.
-The interface features 4 forms;
+* L'execution d'un noeud .
+* La connexion avec un noeud afin de rejoindre le réseau.
+* La recherche par clé .
+* L'enregistrement des informations.
 
-* Node launcher; Input node name and start the node.
-* Connection; Input bootstrap node and connect to it.
-* Get / Lookup; Lookup a key and return it's value.
-* Put; Save a key to the DHT.
+Pour commencer : 
 
-To utilize the interface;
+* Lancer deux noeud ou plus en ouvrant deux navigateurs différents 
+* Connecter les Noeuds entre eux
 
-* Launch atleast two nodes (with distinct IDs); by opening two browser tabs, 
-    and launching.
-* Connect the nodes; by inputting the ID of another node, and connecting.
-
-At this point the network is setup, and you can do lookups / stores.
+A partir de là vous pouvez tester le fonctionnement et voir la console 
