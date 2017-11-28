@@ -202,8 +202,8 @@ document.querySelector('#put').addEventListener('submit', function (e) {
 
  if (document.getElementById("categorie").selectedIndex == "3") {
   if (document.getElementById("sous_categorie1").selectedIndex == "0"){
-  var key_string = "L"+Math.floor((Math.random() * 10) + 61);}
-    else {var key_string = "L"+Math.floor((Math.random() * 10) + 71);}
+  var key_string = "D"+Math.floor((Math.random() * 10) + 61);}
+    else {var key_string = "D"+Math.floor((Math.random() * 10) + 71);}
 }
   element = document.getElementById("value");
   element2 = document.getElementById("titre");
