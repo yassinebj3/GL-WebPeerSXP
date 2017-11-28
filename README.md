@@ -15,7 +15,8 @@
 - Explication de l’exemple 2
 - Todolist
 - Conseils
-(Wiki WebPeerSXP)[https://github.com/yassinebj3/GL-WebPeerSXP/wiki/Projet-WebPeerSXP]
+
+# [Wiki WebPeerSXP](https://github.com/yassinebj3/GL-WebPeerSXP/wiki/Projet-WebPeerSXP)
 
 # Introduction : 
 Après une études des multiples projets WebRTC nous avons choisi l’application javascript “WebRTC kademlia”, pour la simple et bonne raison que c’est le projet le plus avancé, le plus simple à utiliser et qui comporte le moins de bugs par rapport aux autres. Ce logiciel va permettre de simuler des connexion pair à pair WebRTC en local. Ce projet a été implémenté par https://github.com/omphalos  il est possible de le contacter par la page du lien du projet.
