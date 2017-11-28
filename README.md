@@ -19,14 +19,16 @@
 # [Wiki WebPeerSXP](https://github.com/yassinebj3/GL-WebPeerSXP/wiki/Projet-WebPeerSXP)
 
 # Introduction : 
-Après une études des multiples projets WebRTC nous avons choisi l’application javascript “WebRTC kademlia”, pour la simple et bonne raison que c’est le projet le plus avancé, le plus simple à utiliser et qui comporte le moins de bugs par rapport aux autres. Ce logiciel va permettre de simuler des connexion pair à pair WebRTC en local. Ce projet a été implémenté par https://github.com/omphalos  il est possible de le contacter par la page du lien du projet.
-https://github.com/kadtools/kad-webrtc 
+Après une études des multiples projets WebRTC nous avons choisi l’application javascript “WebRTC kademlia”, pour la simple et bonne raison que c’est le projet le plus avancé, le plus simple à utiliser et qui comporte le moins de bugs par rapport aux autres. Ce logiciel va permettre de simuler des connexion pair à pair WebRTC en local. Ce projet a été implémenté par [omphalos](https://github.com/omphalos)  il est possible de le contacter par la page du lien du projet.
 
-# Projet kad-webrtc : 
-kad-webrtc est un projet qui implémente une DHT en utilisant l'algorithme kademlia et qui se base sur WebRTC qui assure une connexion peer2peer entre deux navigateurs.
-le projet offre la possibilité comprendre le mécanisme des DHT et manipuler des objets dans un réseaux P2P 
+### [kad-webrtc](https://github.com/kadtools/kad-webrtc) 
 
-### Projet « kad-webrtc » : 
+# Projet WebPeerSXP : 
+WebPeerSXP est un projet qui implémente une DHT en utilisant l'algorithme kademlia et qui se base sur WebRTC qui assure une connexion peer2peer entre deux navigateurs.
+le projet offre la possibilité comprendre le mécanisme des DHT et manipuler des objets dans un réseaux P2P. 
+Ce projet présente essentiellement des explications sur le projet [kad-webrtc](https://github.com/kadtools/kad-webrtc) et implémente quelques exemples afin d'améliorer un peu le fonctionnement de [kad-webrtc](https://github.com/kadtools/kad-webrtc) .
+
+### L'installation du projet « WebPeerSXP » : 
 L’installation du projet se fait via la commande :
 ```sh
 npm install --global 
@@ -35,16 +37,29 @@ Pour exécuter les exemples tapez :
 ```sh
 npm run build-examples 
 ```
-Afin de manipuler les exemples, il faut lancer un serveur qui se trouve au chemin suivant :
-examples/shared 
-Exécuter la commande : 
+
+### Fonctionner un exemple
+
+Démarrez le serveur :
 ```sh
-node server.js 
+node examples/shared/server.js
 ```
+
 Le serveur sera lancé sur le port 8080 (Si vous avez déjà un autre serveur exécuté sur le port 8080 , vous devez le fermer ou bien changer le port du server.js) . 
 Tapez l’URL de l’exemple, ouvrez plusieurs onglets et essayez de connecter les clients entre eux.
-Vous pouvez regarder la console pour savoir le fonctionnement de kad-webrtc. 
+Vous pouvez regarder la console pour savoir le fonctionnement du projet.
 
+Consultez la page basic du projet [kad-webrtc](https://github.com/kadtools/kad-webrtc)
+
+- http://localhost:8084/examples/webrtc-browser-interactive/basic.html
+
+Consultez la première page pour le premier exemple :
+
+- http://localhost:8084/examples/webrtc-browser-interactive/exemple1.html
+
+Consultez la deuxième page pour le deuxième exemple :
+
+- http://localhost:8084/examples/webrtc-browser-interactive/exemple2.html
 
 ### TODO List : 
 - S'assurer de l'unicité des noeuds 
