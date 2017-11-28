@@ -27,6 +27,9 @@ http://localhost:8084/examples/webrtc-browser-interactive/exemple1.html
 
 http://localhost:8084/examples/webrtc-browser-interactive/exemple2.html
 
+##### - Relancer le serveur après chaque exemple afin de éviter les conflits puisque les exemples utilisent le même serveur .
+##### - Lorsque vous choisissez un exemple à tester , Veuillez s'assurer que vous ouvrez le même lien d'exemple dans les onglets de navigateur afin d'avoir un bon fonctionnement des exemples . 
+
 # Explication
 
 Dans l'interface principale on aura 4 fonctionnalités principales :
