@@ -32,6 +32,8 @@ Ce projet présente essentiellement des explications sur le projet [kad-webrtc](
 L’installation du projet se fait via la commande :
 ```sh
 npm install --global 
+/* En cas d'erreurs */
+npm install hat && npm install kad && npm install simple-peer
 ```
 Pour exécuter les exemples tapez : 
 ```sh
