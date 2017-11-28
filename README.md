@@ -35,7 +35,7 @@ WebPeerSXP a pour objectif d'intégrer WebRTC dans le projet [SXP](https://githu
 ### L'installation du projet « WebPeerSXP » : 
 L’installation du projet se fait via la commande :
 ```sh
-npm install --global 
+npm install  
 /* En cas d'erreurs */
 npm install hat && npm install kad && npm install simple-peer
 ```
