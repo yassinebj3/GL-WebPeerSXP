@@ -79,8 +79,8 @@ Consultez la deuxième page pour le deuxième exemple :
 - faire une recherche sur les nouveaux projets qui ne figurent pas dans la liste 
 - tester le projet kad-webrtc 
 - bien comprendre les erreurs et les analyser 
-- faire des tests boites noires 
-- bien lire notre documentation et l'affiné :) 
+- faire des tests boite noire 
+- bien lire notre documentation et l'affiner :) 
 - Commencer par concevoir des solutions qui minimisent les erreurs. 
 
 
