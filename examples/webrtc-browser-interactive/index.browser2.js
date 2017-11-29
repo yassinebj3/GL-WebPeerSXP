@@ -152,16 +152,16 @@ document.querySelector('#get').addEventListener('submit', function (e) {
   e.preventDefault();
 
   var key_string="";
-  if (document.getElementById("categorie").selectedIndex == "0") {
+  if (document.getElementById("categorie1").selectedIndex == "0") {
   key_string = "E";
 }
- if (document.getElementById("categorie").selectedIndex == "1") {
+ if (document.getElementById("categorie1").selectedIndex == "1") {
   key_string = "S";
 }
- if (document.getElementById("categorie").selectedIndex == "2") {
+ if (document.getElementById("categorie1").selectedIndex == "2") {
   key_string = "L";
 }
- if (document.getElementById("categorie").selectedIndex == "3") {
+ if (document.getElementById("categorie1").selectedIndex == "3") {
   key_string = "D";
 }
   var element = document.querySelector('#get input[name=key]');
